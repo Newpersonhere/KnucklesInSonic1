@@ -1388,7 +1388,7 @@ Pal_LZCyc1:	binclude	"palette/Cycle - LZ Waterfall.bin"
 Pal_LZCyc2:	binclude	"palette/Cycle - LZ Conveyor Belt.bin"
 Pal_LZCyc3:	binclude	"palette/Cycle - LZ Conveyor Belt Underwater.bin"
 Pal_SBZ3Cyc:	binclude	"palette/Cycle - SBZ3 Waterfall.bin"
-Pal_MZCyc:	binclude	"palette/Cycle - MZ (Unused).bin"
+Pal_MZCyc:	binclude	"palette/Cycle - MZ (who knows!).bin"
 Pal_SLZCyc:	binclude	"palette/Cycle - SLZ.bin"
 Pal_SYZCyc1:	binclude	"palette/Cycle - SYZ1.bin"
 Pal_SYZCyc2:	binclude	"palette/Cycle - SYZ2.bin"
@@ -3896,7 +3896,7 @@ End_ClrRam3:
 		move.w	#id_EndZ<<8,(v_zone).w ; set level number to 0600 (extra flowers)
 		cmpi.b	#6,(v_emeralds).w ; do you have all 6 emeralds?
 		beq.s	End_LoadData	; if yes, branch
-		move.w	#(id_EndZ<<8)+1,(v_zone).w ; set level number to 0601 (no flowers)
+		move.w	#(id_EndZ<<8)+1,(v_zone).w ; set level number to 0600 (extra flowers)
 
 End_LoadData:
 		moveq	#plcid_Ending,d0
@@ -5601,7 +5601,7 @@ Map_Swing_SLZ:	include	"_maps/Swinging Platforms (SLZ).asm"
 		include	"_incObj/17 Spiked Pole Helix.asm"
 Map_Hel:	include	"_maps/Spiked Pole Helix.asm"
 		include	"_incObj/18 Platforms.asm"
-Map_Plat_Unused:include	"_maps/Platforms (unused).asm"
+Map_Plat_Unused:include	"_maps/Platforms (who knows).asm"
 Map_Plat_GHZ:	include	"_maps/Platforms (GHZ).asm"
 Map_Plat_SYZ:	include	"_maps/Platforms (SYZ).asm"
 Map_Plat_SLZ:	include	"_maps/Platforms (SLZ).asm"
@@ -7172,12 +7172,12 @@ ResumeMusic:
 Map_Drown:	include	"_maps/Drowning Countdown.asm"
 
 		include	"_incObj/38 Shield and Invincibility.asm"
-		include	"_incObj/4A Special Stage Entry (Unused).asm"
+		include	"_incObj/4A Special Stage Entry.asm"
 		include	"_incObj/08 Water Splash.asm"
 		include	"_anim/Shield and Invincibility.asm"
 Map_Shield:	include	"_maps/Shield and Invincibility.asm"
-		include	"_anim/Special Stage Entry (Unused).asm"
-Map_Vanish:	include	"_maps/Special Stage Entry (Unused).asm"
+		include	"_anim/Special Stage Entry.asm"
+Map_Vanish:	include	"_maps/Special Stage Entry.asm"
 		include	"_anim/Water Splash.asm"
 Map_Splash:	include	"_maps/Water Splash.asm"
 
@@ -8576,9 +8576,9 @@ Nem_TitleSonic:	binclude	"artnem/Title Screen Sonic.bin"
 		even
 Nem_TitleTM:	binclude	"artnem/Title Screen TM.bin"
 		even
-Eni_JapNames:	binclude	"tilemaps/Hidden Japanese Credits.bin" ; Japanese credits (mappings)
+Eni_JapNames:	binclude	"tilemaps/Hidden English Credits.bin" ; English credits (mappings)
 		even
-Nem_JapNames:	binclude	"artnem/Hidden Japanese Credits.bin"
+Nem_JapNames:	binclude	"artnem/Hidden English Credits.bin"
 		even
 
 Map_Sonic:	include	"_maps/Sonic.asm"
@@ -8593,9 +8593,9 @@ Art_Sonic:	binclude	"artunc/Sonic.bin"	; Sonic
 ; Compressed graphics - various
 ; ---------------------------------------------------------------------------
 		if Revision=0
-Nem_Smoke:	binclude	"artnem/Unused - Smoke.bin"
+Nem_Smoke:	binclude	"artnem/Smoke.bin"
 		even
-Nem_SyzSparkle:	binclude	"artnem/Unused - SYZ Sparkles.bin"
+Nem_SyzSparkle:	binclude	"artnem/SYZ Sparkles.bin"
 		even
 		endif
 Nem_Shield:	binclude	"artnem/Shield.bin"
@@ -8603,13 +8603,13 @@ Nem_Shield:	binclude	"artnem/Shield.bin"
 Nem_Stars:	binclude	"artnem/Invincibility Stars.bin"
 		even
 		if Revision=0
-Nem_LzSonic:	binclude	"artnem/Unused - LZ Sonic.bin" ; Sonic holding his breath
+Nem_LzSonic:	binclude	"artnem/LZ Sonic.bin" ; Sonic holding his breath
 		even
-Nem_UnkFire:	binclude	"artnem/Unused - Fireball.bin" ; unused fireball
+Nem_UnkFire:	binclude	"artnem/Fireball.bin" ; fireball that hurts sonic
 		even
-Nem_Warp:	binclude	"artnem/Unused - SStage Flash.bin" ; entry to special stage flash
+Nem_Warp:	binclude	"artnem/SStage Flash.bin" ; entry to special stage flash
 		even
-Nem_Goggle:	binclude	"artnem/Unused - Goggles.bin" ; unused goggles
+Nem_Goggle:	binclude	"artnem/Goggles.bin" ; goggles the help sonic hold his breath
 		even
 		endif
 
@@ -8671,13 +8671,13 @@ Nem_Swing:	binclude	"artnem/GHZ Swinging Platform.bin"
 		even
 Nem_Bridge:	binclude	"artnem/GHZ Bridge.bin"
 		even
-Nem_GhzUnkBlock:binclude	"artnem/Unused - GHZ Block.bin"
+Nem_GhzUnkBlock:binclude	"artnem/GHZ Block.bin"
 		even
 Nem_Ball:	binclude	"artnem/GHZ Giant Ball.bin"
 		even
 Nem_Spikes:	binclude	"artnem/Spikes.bin"
 		even
-Nem_GhzLog:	binclude	"artnem/Unused - GHZ Log.bin"
+Nem_GhzLog:	binclude	"artnem/GHZ Log.bin"
 		even
 Nem_SpikePole:	binclude	"artnem/GHZ Spiked Log.bin"
 		even
@@ -8731,7 +8731,7 @@ Nem_MzSwitch:	binclude	"artnem/MZ Switch.bin"
 		even
 Nem_MzGlass:	binclude	"artnem/MZ Green Glass Block.bin"
 		even
-Nem_UnkGrass:	binclude	"artnem/Unused - Grass.bin"
+Nem_UnkGrass:	binclude	"artnem/Grass.bin"
 		even
 Nem_MzFire:	binclude	"artnem/Fireballs.bin"
 		even
@@ -8739,7 +8739,7 @@ Nem_Lava:	binclude	"artnem/MZ Lava.bin"
 		even
 Nem_MzBlock:	binclude	"artnem/MZ Green Pushable Block.bin"
 		even
-Nem_MzUnkBlock:	binclude	"artnem/Unused - MZ Background.bin"
+Nem_MzUnkBlock:	binclude	"artnem/MZ Background.bin"
 		even
 ; ---------------------------------------------------------------------------
 ; Compressed graphics - SLZ stuff
@@ -8811,7 +8811,7 @@ Nem_Crabmeat:	binclude	"artnem/Enemy Crabmeat.bin"
 		even
 Nem_Buzz:	binclude	"artnem/Enemy Buzz Bomber.bin"
 		even
-Nem_UnkExplode:	binclude	"artnem/Unused - Explosion.bin"
+Nem_UnkExplode:	binclude	"artnem/Explosion.bin"
 		even
 Nem_Burrobot:	binclude	"artnem/Enemy Burrobot.bin"
 		even
@@ -8846,7 +8846,7 @@ Nem_Hud:	binclude	"artnem/HUD.bin"	; HUD (rings, time, score)
 		even
 Nem_Lives:	binclude	"artnem/HUD - Life Counter Icon.bin"
 		even
-Nem_Ring:	binclude	"artnem/Rings.bin"
+Nem_Ring:	binclude	"artnem/Ring.bin"
 		even
 Nem_Monitors:	binclude	"artnem/Monitors.bin"
 		even
@@ -8965,7 +8965,7 @@ Nem_EndSonic:	binclude	"artnem/Ending - Sonic.bin"
 Nem_TryAgain:	binclude	"artnem/Ending - Try Again.bin"
 		even
 Nem_EndEggman:	if Revision=0
-		binclude	"artnem/Unused - Eggman Ending.bin"
+		binclude	"artnem/Ending - Eggman Ending.bin"
 		endif
 		even
 Kos_EndFlowers:	binclude	"artkos/Flowers at Ending.bin" ; ending sequence animated flowers
