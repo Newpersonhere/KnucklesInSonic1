@@ -111,7 +111,7 @@ loc_E0:
 		dc.l ErrorTrap
 	endif
 		dc.b "SEGA MEGA DRIVE " ; Hardware system ID (Console name)
-		dc.b "(C)SEGA 1991.APR" ; Copyright holder and release date (generally year)
+		dc.b "(C)SEGA 1991.JUN" ; Copyright holder and release date (generally year)
 		dc.b "SONIC THE               HEDGEHOG                " ; Domestic name
 		dc.b "SONIC THE               HEDGEHOG                " ; International name
 		if Revision=0
@@ -2473,29 +2473,29 @@ LevSel_Ptrs:	if Revision=0
 		dc.b id_SYZ, 2
 		dc.b id_SBZ, 0
 		dc.b id_SBZ, 1
-		dc.b id_LZ, 3		; Scrap Brain Zone 3
+		dc.b id_LZ, 3		; Labyrinth Zone 4
 		dc.b id_SBZ, 2		; Final Zone
 		else
 		; correct level order
-		dc.b id_GHZ, 0
 		dc.b id_GHZ, 1
 		dc.b id_GHZ, 2
-		dc.b id_MZ, 0
+		dc.b id_GHZ, 3
 		dc.b id_MZ, 1
 		dc.b id_MZ, 2
-		dc.b id_SYZ, 0
+		dc.b id_MZ, 3
 		dc.b id_SYZ, 1
 		dc.b id_SYZ, 2
-		dc.b id_LZ, 0
+		dc.b id_SYZ, 3
 		dc.b id_LZ, 1
 		dc.b id_LZ, 2
-		dc.b id_SLZ, 0
+		dc.b id_LZ, 3
 		dc.b id_SLZ, 1
 		dc.b id_SLZ, 2
-		dc.b id_SBZ, 0
+		dc.b id_SLZ, 3
 		dc.b id_SBZ, 1
-		dc.b id_LZ, 3
 		dc.b id_SBZ, 2
+		dc.b id_LZ, 2
+		dc.b id_SBZ, 4
 		endif
 		dc.b id_SS, 0		; Special Stage
 		dc.w $8000		; Sound Test
@@ -3896,7 +3896,7 @@ End_ClrRam3:
 		move.w	#id_EndZ<<8,(v_zone).w ; set level number to 0600 (extra flowers)
 		cmpi.b	#6,(v_emeralds).w ; do you have all 6 emeralds?
 		beq.s	End_LoadData	; if yes, branch
-		move.w	#(id_EndZ<<8)+1,(v_zone).w ; set level number to 0601 (no flowers)
+		move.w	#id_EndZ<<8,(v_zone).w ; set level number to 0600 (extra flowers)
 
 End_LoadData:
 		moveq	#plcid_Ending,d0
@@ -5292,7 +5292,7 @@ LevelDataLoad:
 		andi.w	#$FF,d0
 		cmpi.w	#(id_LZ<<8)+3,(v_zone).w ; is level SBZ3 (LZ4) ?
 		bne.s	.notSBZ3	; if not, branch
-		moveq	#palid_SBZ3,d0	; use SB3 palette
+		moveq	#palid_SBZ3,d0	; use SBZ3 palette
 
 .notSBZ3:
 		cmpi.w	#(id_SBZ<<8)+1,(v_zone).w ; is level SBZ2?
@@ -8603,13 +8603,13 @@ Nem_Shield:	binclude	"artnem/Shield.bin"
 Nem_Stars:	binclude	"artnem/Invincibility Stars.bin"
 		even
 		if Revision=0
-Nem_LzSonic:	binclude	"artnem/Unused - LZ Sonic.bin" ; Sonic holding his breath
+Nem_LzSonic:	binclude	"artnem/LZ Sonic.bin" ; Sonic holding his breath
 		even
-Nem_UnkFire:	binclude	"artnem/Unused - Fireball.bin" ; unused fireball
+Nem_UnkFire:	binclude	"artnem/Fireball.bin" ; unused fireball
 		even
 Nem_Warp:	binclude	"artnem/Unused - SStage Flash.bin" ; entry to special stage flash
 		even
-Nem_Goggle:	binclude	"artnem/Unused - Goggles.bin" ; unused goggles
+Nem_Goggle:	binclude	"artnem/Goggles.bin" ; goggles
 		even
 		endif
 
